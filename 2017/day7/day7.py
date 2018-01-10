@@ -1,11 +1,11 @@
-"""Advent of Code 2018. Day 7
+"""
+Advent of Code 2018. Day 7
 
 Usage:
     day7.py part1
     day7.py part2
     day7.py test
 """
-
 import re
 from anytree import Node
 from collections import defaultdict

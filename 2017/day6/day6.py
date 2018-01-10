@@ -1,5 +1,13 @@
+"""
+Advent of Code 2018. Day 6
+
+Usage:
+    day6.py part1
+    day6.py part2
+    day6.py test
+"""
 import numpy as np
-import sys
+from docopt import docopt
 
 PART1_SOLUTION = 4074
 PART2_SOLUTION = 2793
@@ -53,10 +61,16 @@ def part2():
     return redistribution_cycles - k + 1
 
 
+def test():
+    assert part1() == PART1_SOLUTION
+    assert part2() == PART2_SOLUTION
+
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "test":
-        assert part1() == PART1_SOLUTION
-        assert part2() == PART2_SOLUTION
-    else:
+    arguments = docopt(__doc__)
+    if arguments["part1"]:
         print(part1())
+    elif arguments["part2"]:
         print(part2())
+    elif arguments["test"]:
+        test()

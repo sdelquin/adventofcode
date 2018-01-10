@@ -1,4 +1,15 @@
-import sys
+"""
+Advent of Code 2018. Day 1
+
+Usage:
+    day1.py part1
+    day1.py part2
+    day1.py test
+"""
+from docopt import docopt
+
+PART1_SOLUTION = 1253
+PART2_SOLUTION = 1278
 
 
 def load_input_data():
@@ -29,10 +40,16 @@ def part2():
     return sum(matches)
 
 
+def test():
+    assert part1() == PART1_SOLUTION
+    assert part2() == PART2_SOLUTION
+
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "test":
-        assert part1() == 1253
-        assert part2() == 1278
-    else:
+    arguments = docopt(__doc__)
+    if arguments["part1"]:
         print(part1())
+    elif arguments["part2"]:
         print(part2())
+    elif arguments["test"]:
+        test()

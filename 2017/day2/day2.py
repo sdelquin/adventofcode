@@ -1,6 +1,17 @@
-import sys
+"""
+Advent of Code 2018. Day 2
+
+Usage:
+    day2.py part1
+    day2.py part2
+    day2.py test
+"""
+from docopt import docopt
 import re
 import numpy as np
+
+PART1_SOLUTION = 44670
+PART2_SOLUTION = 285
 
 
 def load_input_data():
@@ -34,10 +45,16 @@ def part2():
     return sum(evenly_divisibles)
 
 
+def test():
+    assert part1() == PART1_SOLUTION
+    assert part2() == PART2_SOLUTION
+
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "test":
-        assert part1() == 44670
-        assert part2() == 285
-    else:
+    arguments = docopt(__doc__)
+    if arguments["part1"]:
         print(part1())
+    elif arguments["part2"]:
         print(part2())
+    elif arguments["test"]:
+        test()

@@ -1,7 +1,15 @@
+"""
+Advent of Code 2018. Day 3
+
+Usage:
+    day3.py part1
+    day3.py part2
+    day3.py test
+"""
+from docopt import docopt
 import numpy as np
 from collections import namedtuple
 from itertools import product
-import sys
 
 TARGET = 312051
 PART1_SOLUTION = 430
@@ -59,10 +67,16 @@ def part2():
         i += 1
 
 
+def test():
+    assert part1() == PART1_SOLUTION
+    assert part2() == PART2_SOLUTION
+
+
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "test":
-        assert part1() == PART1_SOLUTION
-        assert part2() == PART2_SOLUTION
-    else:
+    arguments = docopt(__doc__)
+    if arguments["part1"]:
         print(part1())
+    elif arguments["part2"]:
         print(part2())
+    elif arguments["test"]:
+        test()
